@@ -1,0 +1,14 @@
+<div class = "row" >
+  <div class = "col-lg-12">
+    <div class = "states_form left_top7">
+      <%= label_tag :status, t("states"), :class=> "control-label" %>
+      <%= select_tag :status,options_for_select(t("status")), {:multiple=>true, :class => 'multiselect form-control js_select_status'} %>
+    </div> 
+    <% if @url == tasks_path %>
+      <div class = "states_form left_top7">
+        <%= label_tag :assignee, t("task.assignee"), :class=> "control-label", :multiple => true %>
+        <%= select_tag :assignee, options_for_select(@assignee), {multiple: true, :class=>'multiselect form-control js_select_assignee'} %>
+      </div>
+    <% end %>
+  </div>  
+</div>

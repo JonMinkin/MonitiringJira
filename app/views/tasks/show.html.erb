@@ -1,0 +1,41 @@
+<div class = "container">
+  <div class = "panel panel-default table">
+    <div class = "panel-heading text-center"><h1><%= @task.summary %></h1></div>
+    <div class = "panel-body">
+      <div class = "panel-group">
+        <div class = "panel panel-default">
+          <div class = "panel-body">
+            <div class = "row">
+              <div class = "col-lg-2">
+                <p><%= t("key") %>: <%= link_to @task.key, "http://jira.rubyruby.ru/browse/#{@task.key}" %> <br/>
+                <%= t("task.payment") %>: <%= @task.gross %></p>
+              </div>
+              <div class = "col-lg-3 col-lg-offset-1">
+                <p><%= t("task.created_task") %>: <%= @task.created_at %><br/>
+                <%= t("task.due_date") %>: <%= @task.due_date %></p>
+              </div>
+              <div class = "col-lg-4 col-lg-offset-2">
+                <div class = "button_tasks_all right_width_105">
+                  <%= button_to(tasks_path, :method => :get, :class => "btn btn-info") do %>
+                    <i class="glyphicon glyphicon-th-list"></i> <%= t("task.tasks_all") %>
+                  <% end %>
+                </div>
+                <div class = "button_all_projects_show right_width_105">
+                  <%= button_to(projects_path, :method => :get, :class => "btn btn-primary") do %>
+                    <i class = "glyphicon glyphicon-th-list"></i> <%= t("project.all_projects") %>
+                  <% end %>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class = "panel-group">
+        <div class = "panel panel-default">
+          <div class = "panel-heading text-center"><%= t("task.description") %></div>
+          <div class = "panel-body"><%= @task.description %></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,13 @@
+<table class = "table table-bordered table-hover table_tasks_index">
+  <tr class = "jumbotron">
+    <td><%= t("task.summary") %></td>
+    <td><%= t("key") %></td>
+    <td><%= t("task.reporter") %></td>
+    <td><%= t("task.assignee") %></td>
+    <td><%= t("task.created_task") %></td>
+    <td><%= t("task.due_date") %></td>
+    <td><%= t("task.status") %></td>
+    <td><%= t("task.payment") %></td>
+  </tr>
+  <%= render partial: "task", collection: @tasks %>
+</table>

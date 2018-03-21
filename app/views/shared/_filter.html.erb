@@ -1,0 +1,22 @@
+<div class = "panel panel-default panel-filter">
+  <div class = "panel-heading"><%= t("filter") %></div>
+  <div class = "panel-body">
+    <% params[:action] == "index" ? @url = 
+      "/#{params[:controller]}" :  @url = "/#{params[:controller]}/#{params[:action]}" %>
+    <%= form_tag(@url, :method => :get) do %>
+      <%= render "shared/radiobutton" %>
+      <%= render "shared/datetimepicker" %>
+      <%= render "shared/status_assignee" %>
+      <div class = "row">
+        <div class = "col-lg-12" >
+          <div class = "button_filter left_top7">
+            <button class = "btn btn-primary">
+              <i class = "glyphicon glyphicon-filter"></i><%= t("filter")%>
+            </button>
+          </div>
+    <% end %>
+          <%= render "shared/btn_clear" %>
+        </div>
+      </div>
+  </div>
+</div>

@@ -1,0 +1,5 @@
+ewe<% @par.each do |x| %>
+<%if x.present? %>
+  <%= User.find(x)%>
+<%end%>
+<%end%>

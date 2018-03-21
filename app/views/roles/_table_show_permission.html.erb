@@ -1,0 +1,21 @@
+<table class = "table table-bordered table-hover">
+  <tr class = "jumbotron">
+    <td class="text-center"><%= t("klass") %></td>
+    <td class="text-center"><%= t("action") %></td>
+    <td class="text-center"><%= t("del") %></td>
+  </tr>
+  <% @role.permissions.each do |permission| %>
+    <tr>
+    <td><%= permission.klass %></td>
+    <td><%= permission.action %></td>
+    <td class="text-center">
+      <%= form_tag(role_path(@role.id), :method => :get) do %>
+ <%= hidden_field_tag :permission_id, permission.id %>
+            <button class = "btn btn-danger btn_del_role">
+              <i class = "glyphicon glyphicon-trash"></i> <%= t("del") %>
+            </button> 
+<% end %>
+    </td>
+  </tr>
+  <% end %>
+</table>

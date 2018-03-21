@@ -1,0 +1,13 @@
+<% @role.users.each  do |user| %>
+<tr>
+  <td><%= user.email %></td>
+  <td>
+ <%= form_tag(role_path(@role.id), :method => :get) do %>
+ <%= hidden_field_tag :user_id, user.id %>
+            <button class = "btn btn-danger btn_del_role">
+              <i class = "glyphicon glyphicon-trash"></i> <%= t("del") %>
+            </button> 
+<% end %>
+      </td>
+</tr>
+<% end %>

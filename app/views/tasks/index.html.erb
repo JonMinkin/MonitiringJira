@@ -1,0 +1,14 @@
+<div class = "container">
+  <div class = "panel panel-default table">
+    <div class = "panel-heading text-center"><h1><%= t("task.list_of_all_tasks") %></h1></div>
+    <div class = "panel-body">
+      <%= render "shared/filter" %>
+      <div class = "button_all_projects right_width_105">
+        <%= button_to(projects_path, :method => :get, :class => "btn btn-primary") do %>
+          <i class = "glyphicon glyphicon-th-list"></i><%= t("project.all_projects") %>
+        <% end %>
+      </div>
+      <%= render "table_tasks_index" %>
+    </div>
+  </div>
+</div>

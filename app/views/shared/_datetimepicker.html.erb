@@ -1,0 +1,20 @@
+<div class = "row">
+  <div class = "col-lg-12"> 
+    <div class = "left_top5">
+      <%= label_tag :from, t("data"), :class=> "control-label", :style => "float: left" %>
+    </div>       
+    <div class = "jsdatetimepicker datetimepicker1">
+      <span class = "add-on">
+        <%= text_field_tag :from, params[:from], :class => "form-control", :value => "" %>
+      </span>
+    </div>
+    <div class = "left_top5">
+      <span class="glyphicon glyphicon-link"></span>
+    </div>
+    <div class = "jsdatetimepicker datetimepicker2">
+      <span class = "add-on">
+        <%= text_field_tag :to, params[:to], :class => "form-control", :value => "" %>
+      </span>
+    </div>             
+  </div>
+</div>

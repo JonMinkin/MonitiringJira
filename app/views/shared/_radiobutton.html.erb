@@ -1,0 +1,13 @@
+<% if @url == projects_show_path %>
+  <%= hidden_field_tag :id,params[:id] %>
+  <div class = "row">
+    <div class = "col-lg-12">
+      <%= label_tag(:created_at, t("created_at"), :class  => "control-label")  %>
+      <%= radio_button_tag(:radio, t("radio_created_at"), :checkit) %>
+      <%= label_tag(:updated_at, t("updated_at")) %>
+      <%= radio_button_tag(:radio, t("radio_updated_at")) %>
+      <%= label_tag(:due_date, t("due_date")) %>
+      <%= radio_button_tag(:radio, t("radio_due_date")) %>
+    </div>
+  </div>
+<% end %>

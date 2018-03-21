@@ -1,0 +1,21 @@
+<table class = "table table-bordered table-hover">
+  <tr class = "jumbotron">
+    <td><%= t("task.summary") %></td>
+    <td><%= t("key") %></td>
+    <td><%= t("task.reporter") %></td>
+    <td><%= t("task.assignee") %></td>
+    <td><%= t("task.created_task") %></td>
+    <td><%= t("task.due_date") %></td>
+    <td><%= t("task.status") %></td>
+    <td><%= t("task.paid") %></td>
+    <td><%= t("task.gross") %></td>
+    <td><%= t("task.payment") %></td>
+  </tr>
+  <%= render partial: "task", collection: @tasks %>
+  <tr>
+    <td><%= t("task.total") %></td>
+    <td colspan = "7"></td>
+    <td><%= Task.tasks_total(params[:id], @filter_radio, @filter_date, @filter_status) %></td>
+    <td></td>
+  </tr> 
+</table>

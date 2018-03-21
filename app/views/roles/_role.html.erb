@@ -1,0 +1,13 @@
+  <tr>
+    <td><%= link_to role.name, role_path(role.id) %></td>
+    <td class="width_td">
+    <% if can? :edit, role %>
+      <%= button_to(edit_role_path(role.id), :method => :get, :class => "btn btn-success btn_edit_role") do %>
+        <i class = "glyphicon glyphicon-pencil"></i> <%= t("edit") %>
+      <% end %>
+      <% end %>
+      <%= button_to(role_path(role.id), method: :delete, data: {confirm: "Точно удалить?"}, :class => "btn btn-danger btn_del_role") do %>
+        <i class = "glyphicon glyphicon-trash"></i> <%= t("del") %>
+      <% end %>
+    </td>
+  </tr>

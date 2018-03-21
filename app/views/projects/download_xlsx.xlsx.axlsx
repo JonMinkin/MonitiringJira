@@ -1,0 +1,19 @@
+xlsx_package = Axlsx::Package.new
+wb = xlsx_package.workbook
+wb.add_worksheet(name: @project.name) do |sheet|
+  wb.styles do |s|
+    border = s.add_style :border => {:style => :thin, :color => "000000"}, alignment: {horizontal: :center}
+    center = s.add_style alignment: {horizontal: :center}
+    b =  s.add_style :border => {:style => :thin, :color => "000000"}
+    sheet.merge_cells("A1:L1")
+    sheet.merge_cells("A2:L2")
+    data = s.add_style alignment: {wrap_text: true}
+    sheet.add_row [@project.name], style: center
+    sheet.add_row [""], style: center
+    sheet.add_row [t("task.task"),t("key"), t("task.reporter"), t("task.assignee"), t("task.priority"), t("states"), t("task.created_task"), t("task.updated_at"), t("task.due_date"), t("task.gross"), t("task.net"), t("task.payment")], style: border
+    @tasks.all.each do |task|
+      sheet.add_row [task.summary, task.key, task.reporter, task.assignee, task.priority, task.status, task.created_at.to_s, task.updated_at.to_s, task.due_date.to_s, task.gross, task.net, @paid_tasks[task.id]], style: b
+    end
+    sheet.add_row [t("task.total"),"", "", "", "", "", "", "","", @sumGross[@tasks.first.project_id],  @sumNet[@tasks.first.project_id], "" ]
+  end 
+end

@@ -1,0 +1,23 @@
+<div class = "container">
+  <div class = "panel panel-default table">
+    <div class = "panel-heading text-center"><h1><%= @project.first.name %></h1></div>
+    <div class = "panel-body">
+      <%= render "shared/filter" %>
+      <div class = "button_task_all">
+        <%= button_to(tasks_path, :method => :get, :class => "btn btn-info") do %>
+          <i class="glyphicon glyphicon-th-list"></i> <%= t("task.tasks_all") %>
+        <% end %>
+      </div>
+      <div class = "btn_all_projects right_width_105">
+        <%= button_to(projects_path, :method => :get, :class => "btn btn-primary") do %>
+          <i class = "glyphicon glyphicon-th-list"></i><%= t("project.all_projects") %>
+        <% end %>
+      </div>
+      <%= render "table_projects_show" %>
+      <div class = "panel panel-default">
+        <div class = "panel-heading text-center"><%= t("task.schedule_completed_tasks") %></div>
+        <div class = "panel-body"><%= column_chart(@grafics) %></div>
+      </div>
+    </div>
+  </div>
+</div>

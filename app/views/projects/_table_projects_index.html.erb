@@ -1,0 +1,13 @@
+<table class = "table table-bordered table-hover">
+  <tr class = "jumbotron">
+    <td><%= t("project.name") %></td>
+    <td><%= t("project.key") %></td>
+    <td><%= t("project.earned") %></td>
+    <% if current_user.admin? %>
+      <td><%= t("task.gross") %></td>
+      <td><%= t("task.net") %></td>
+    <% end %>
+    <td><%= t("project.download") %></td>
+  </tr>
+  <%= render partial: "project", collection: @projects %>
+</table>

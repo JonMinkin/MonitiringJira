@@ -1,0 +1,13 @@
+<div class = "container">
+  <div class = "panel panel-default table">
+    <div class = "panel-heading text-center"><h1><%= @role.name %></h1></div>
+    <div class = "panel-body">
+      <%= render "roles/btn/btn_modal_users" %>
+      <%= render "table_show_users_on_role" %>
+      <%= render "roles/btn/btn_modal_permission" %>
+      <%= render "table_show_permission" %>
+      <%= render "modal_users_on_role" %>
+      <%= render "modal_permission_on_role" %>
+    </div>
+  </div>
+</div>

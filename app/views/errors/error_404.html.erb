@@ -1,0 +1,18 @@
+<div class = "container">
+  <div class = "panel_devise panel-default width_panel">
+    <div class = "panel-heading text-center"><h1><%= t("404") %></h1></div>
+    <div class = "panel-body">
+      <h1 class = "text-center"><%= t("Page_not_faund") %></h1>
+      <div class = "button_all_tasks_404">
+      <%= button_to(tasks_path, :method => :get, :class => "btn btn-info") do %>
+        <i class="glyphicon glyphicon-th-list"></i> <%= t("task.tasks_all") %>
+      <% end %>
+      </div>
+      <div class = "button_all_projects_404">
+       <%= button_to(projects_path, :method => :get, :class => "btn btn-primary") do %>
+          <i class = "glyphicon glyphicon-th-list"></i><%= t("project.all_projects") %>
+        <% end %>
+        </div>
+    </div>
+  </div>
+</div>

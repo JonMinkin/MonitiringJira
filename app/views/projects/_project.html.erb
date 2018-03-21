@@ -1,0 +1,16 @@
+<% unless @projects.nil? %>
+  <tr>
+    <td><%= link_to project.name, project %></td>
+    <td><%= link_to project.key, "http://jira.rubyruby.ru/browse/#{project.key}" %></td>
+    <td><%=  Task.tasks_total(project.id, @filter_radio, @filter_date, @filter_status)%></td>
+      <% if current_user.admin? %>
+        <td><%= Task.sumGross(project.id, @filter_radio, @filter_date, @filter_status) %></td>
+        <td><%= Task.sumNet(project.id, @filter_radio, @filter_date, @filter_status) %></td>
+      <% end %>
+    <td>
+      <span class="glyphicon glyphicon-save-file">
+        <%= link_to t("project.download_xlsx"), download_xlsx_project_path(project, "from"=> params[:from], "to" => params[:to], "status" => params[:status], format: 'xlsx') %> 
+      </span>
+    </td>
+  </tr> 
+<% end %>

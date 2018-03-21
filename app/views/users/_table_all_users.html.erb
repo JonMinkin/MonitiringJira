@@ -1,0 +1,8 @@
+<table class = "table table-bordered table-hover">
+  <tr class = "jumbotron"%>
+    <td><%= t("devise.email") %></td>
+    <td><%= t("role") %></td>
+    <td><%= t("del") %></td>
+  </tr>
+  <%= render partial: "user", collection: @users %>
+</table>

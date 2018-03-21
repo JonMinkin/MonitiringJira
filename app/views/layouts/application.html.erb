@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>MonitoringJira</title>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+    <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+    <%= javascript_include_tag "//www.google.com/jsapi", "chartkick" %>
+    <%= javascript_include_tag "path/to/highcharts.js", "chartkick" %>
+    <%= csrf_meta_tags %>
+  </head>
+  <body>
+    <div class = "navbar navbar-inverse navbar-fixed-top" role="navigation">
+      <div class = "container">
+        <div class = "navbar-header">
+          <button type = "button" class = "navbar-toggle" data-toggle = "collapse" data-target = ".navbar-collapse">
+            <span class = "sr-only">Toggle navigation</span>
+            <span class = "icon-bar"></span>
+            <span class = "icon-bar"></span>
+            <span class = "icon-bar"></span>
+          </button>
+          <%= link_to MonitoringJira, projects_path, :class =>"navbar-brand" %>
+        </div>
+        <% if user_signed_in? %>
+          <ul class = "nav navbar-nav">
+            <li ><%= link_to t("Роли"), roles_path %></li>
+            <li ><%= link_to t("Пользователи"), users_path %></li>
+          </ul>
+          <ul class = "nav navbar-nav navbar-right">
+            <li class = "hello"><%= t("hello") %>, <%= current_user.email %></li>
+            <li><%=  link_to t("sign_out"),destroy_user_session_path, :method => :delete %></li>
+          </ul>
+        <% else %>
+          <ul class = "nav navbar-nav navbar-right">
+            <li>
+              <%= link_to(new_user_session_path) do%>
+                <i class = "glyphicon glyphicon-log-out"></i> <%= t("sign_in") %>
+              <% end %>
+            </li>
+            <li><%= link_to(new_user_registration_path) do%>
+              <i class = "glyphicon glyphicon-pencil"></i> <%= t("devise.sign_up") %>
+               <% end %>
+            </li>
+          </ul>
+        <% end %>
+        </div>
+      </div>
+      <div class="flash-notice">
+        <%= render 'layouts/messages' %>
+      </div>
+      <%= yield %>
+  </body>
+</html>

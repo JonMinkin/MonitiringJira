@@ -1,0 +1,22 @@
+<div id="modal_permission_on_role" class="modal fade">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <!-- Заголовок модального окна -->
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+        <h4 class="modal-title text-center"><%= t("list_permision") %></h4>
+      </div>
+      <!-- Основное содержимое модального окна -->
+        <%= simple_form_for @role, :url => role_path, :method => :get do |f| %>
+        <div class="modal-body">
+          <%= f.association :permissions, :label_method => lambda { |permission| "can :#{permission.action}  #{permission.klass}"},  as: :check_boxes %>
+      </div>
+      <!-- Футер модального окна -->
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal"><%= t("close") %></button>
+        <%= f.button :submit, :class =>  "btn btn-primary" %>
+      </div>
+       <% end %>
+    </div>
+  </div>
+</div>

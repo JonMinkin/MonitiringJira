@@ -1,0 +1,11 @@
+<div class = "clear_filter left_top7">
+  <% if @url != projects_show_path %>
+    <%= button_to(@url, :method => :get, :class => "btn btn-danger") do %>
+      <i class = "glyphicon glyphicon-remove"></i> <%= t("clear") %>
+    <% end %>
+  <% else %>
+    <%= button_to(project_path(params[:id]), :method => :get, :class => "btn btn-danger") do %>
+      <i class = "glyphicon glyphicon-remove"></i> <%= t("clear") %>
+    <% end %>
+  <% end %>
+</div>

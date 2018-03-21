@@ -1,0 +1,6 @@
+<%= simple_form_for(Role.new,  html: {"data-parsley-validate" => ''}) do |f| %>
+  <%= f.input :name, input_html: { "data-parsley-error-message" => "Пожалуста заполните поле", "data-parsley-trigger" => "focusin focusout change" } %>
+  <%= f.association :users, label_method: :email, as: :check_boxes %>
+  <%= f.association :permissions, :label_method => lambda { |permission| "can :#{permission.action}  #{permission.klass}"},  as: :check_boxes %>
+  <%= f.button :submit %>
+<% end %>

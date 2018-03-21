@@ -1,0 +1,10 @@
+<tr>
+  <td><%= link_to task.summary, task %></td>
+  <td><%= link_to task.key, "http://#" %></td>
+  <td><%= task.reporter %></td>
+  <td><%= task.assignee %></td>
+  <td><%= task.created_at %></td>
+  <td><%= task.due_date %></td>
+  <td><%= task.status %></td>
+  <td><%= task.paid ? task.gross : "" %></td>
+</tr>

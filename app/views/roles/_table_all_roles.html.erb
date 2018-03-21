@@ -1,0 +1,7 @@
+<table class = "table table-bordered table-hover">
+  <tr class = "jumbotron">
+    <td class="text-center"><%= t("role") %></td>
+    <td class="text-center"><%= t("edit") %> / <%= t("del") %></td>
+  </tr>
+  <%= render partial: "role", collection: @roles %>
+</table>
